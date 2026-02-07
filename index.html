@@ -1,77 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Will You Be My Valentine? 💖</title>
+    <title>Will You Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>💌 Will You Be My Valentine, Khushi? 💌</h1>
+    <main class="card">
+        <h1>Will you be my Valentine, <span>Khushi</span>?</h1>
+        <p class="subtitle">A simple question, from the heart 💗</p>
 
-        <div class="heart">❤️</div>
-
-        <div class="buttons">
-            <button class="yes" onclick="yesClicked()">Yes 💖</button>
-            <button class="no" onmouseover="moveButton()">No 🙈</button>
+        <div class="actions">
+            <button class="btn yes" onclick="yesClicked()">Yes</button>
+            <button class="btn no" onmouseover="moveButton()">No</button>
         </div>
 
-        <p id="message"></p>
-    </div>
+        <p id="shayari" class="shayari"></p>
+    </main>
 
-    <!-- SONG POPUP -->
-    <div class="popup" id="songPopup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">×</span>
+    <!-- Song Popup -->
+    <div class="overlay" id="popup">
+        <div class="popup">
+            <button class="close" onclick="closePopup()">✕</button>
 
-            <div class="spotify-card">
-                <div class="album-art">🎵</div>
-
-                <div class="song-info">
+            <div class="spotify-widget">
+                <div class="cover"></div>
+                <div class="track">
                     <h3>Thinking Out Loud</h3>
                     <p>Ed Sheeran</p>
                 </div>
             </div>
 
             <p class="dedication">
-                💌 This song is a dedication <br>
-                from <strong>Aditya</strong> to <strong>you, Khushi</strong> ❤️
+                This song is a dedication from<br>
+                <strong>Aditya</strong> to <strong>you, Khushi</strong> 🤍
             </p>
 
-            <a class="spotify-btn"
+            <a class="spotify-link"
                href="https://open.spotify.com/track/34gCuhDGsG4bRPIf9bb02f"
                target="_blank">
-                ▶ Play on Spotify
+                Play on Spotify
             </a>
         </div>
     </div>
 
     <script>
-        const shayariList = [
-            "😌 Thank you for choosing wisely! Tumne sahi insaan chuna hai 💕",
-            "🌹 Tumhara YES kehna, mere liye poori duniya jeetne jaisa hai ❤️",
-            "😉 Warning: YES ke baad pyaar lifetime free milega 💖",
-            "💖 Ishq wo hai jo tumhare YES se shuru ho 😍",
-            "🌸 Tum YES keh do, zindagi khoobsurat ho jaaye 💕"
+        const shayari = [
+            "You chose right — some decisions just feel meant to be.",
+            "This YES just made my day… maybe my year.",
+            "Not all choices are easy, but this one was perfect.",
+            "Some moments don’t need words — just a YES.",
+            "I’ll remember this answer, always."
         ];
 
         function yesClicked() {
-            const randomIndex = Math.floor(Math.random() * shayariList.length);
-            document.getElementById("message").innerHTML = shayariList[randomIndex];
-            document.getElementById("songPopup").style.display = "flex";
+            document.getElementById("shayari").innerText =
+                shayari[Math.floor(Math.random() * shayari.length)];
+            document.getElementById("popup").style.display = "flex";
         }
 
         function closePopup() {
-            document.getElementById("songPopup").style.display = "none";
+            document.getElementById("popup").style.display = "none";
         }
 
         function moveButton() {
-            const button = document.querySelector(".no");
-            const x = Math.random() * 200 - 100;
-            const y = Math.random() * 200 - 100;
-            button.style.transform = `translate(${x}px, ${y}px)`;
+            const btn = document.querySelector(".no");
+            btn.style.transform =
+                `translate(${Math.random()*120-60}px, ${Math.random()*120-60}px)`;
         }
     </script>
 
