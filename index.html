@@ -1,60 +1,79 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Valentine Week 💖</title>
+    <title>Will You Be My Valentine? 💖</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Valentine Week 💕</h1>
-        <p>8 Days. 8 Feelings. One Love.</p>
-    </header>
+    <div class="container">
+        <h1>💌 Will You Be My Valentine, Khushi? 💌</h1>
 
-    <section>
-        <h2>🌹 Rose Day</h2>
-        <p>A rose to express love.</p>
-    </section>
+        <div class="heart">❤️</div>
 
-    <section>
-        <h2>💍 Propose Day</h2>
-        <p>Say it from your heart.</p>
-    </section>
+        <div class="buttons">
+            <button class="yes" onclick="yesClicked()">Yes 💖</button>
+            <button class="no" onmouseover="moveButton()">No 🙈</button>
+        </div>
 
-    <section>
-        <h2>🍫 Chocolate Day</h2>
-        <p>Sweet moments deserve sweetness.</p>
-    </section>
+        <p id="message"></p>
+    </div>
 
-    <section>
-        <h2>🧸 Teddy Day</h2>
-        <p>A hug you can hold forever.</p>
-    </section>
+    <!-- SONG POPUP -->
+    <div class="popup" id="songPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">×</span>
 
-    <section>
-        <h2>🤞 Promise Day</h2>
-        <p>Promises made with love.</p>
-    </section>
+            <div class="spotify-card">
+                <div class="album-art">🎵</div>
 
-    <section>
-        <h2>🤗 Hug Day</h2>
-        <p>The warmest feeling.</p>
-    </section>
+                <div class="song-info">
+                    <h3>Thinking Out Loud</h3>
+                    <p>Ed Sheeran</p>
+                </div>
+            </div>
 
-    <section>
-        <h2>💋 Kiss Day</h2>
-        <p>A moment that says everything.</p>
-    </section>
+            <p class="dedication">
+                💌 This song is a dedication <br>
+                from <strong>Aditya</strong> to <strong>you, Khushi</strong> ❤️
+            </p>
 
-    <section>
-        <h2>❤️ Valentine’s Day</h2>
-        <p>Forever starts here.</p>
-    </section>
+            <a class="spotify-btn"
+               href="https://open.spotify.com/track/34gCuhDGsG4bRPIf9bb02f"
+               target="_blank">
+                ▶ Play on Spotify
+            </a>
+        </div>
+    </div>
 
-    <footer>
-        <p>Made with ❤️</p>
-    </footer>
+    <script>
+        const shayariList = [
+            "😌 Thank you for choosing wisely! Tumne sahi insaan chuna hai 💕",
+            "🌹 Tumhara YES kehna, mere liye poori duniya jeetne jaisa hai ❤️",
+            "😉 Warning: YES ke baad pyaar lifetime free milega 💖",
+            "💖 Ishq wo hai jo tumhare YES se shuru ho 😍",
+            "🌸 Tum YES keh do, zindagi khoobsurat ho jaaye 💕"
+        ];
+
+        function yesClicked() {
+            const randomIndex = Math.floor(Math.random() * shayariList.length);
+            document.getElementById("message").innerHTML = shayariList[randomIndex];
+            document.getElementById("songPopup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("songPopup").style.display = "none";
+        }
+
+        function moveButton() {
+            const button = document.querySelector(".no");
+            const x = Math.random() * 200 - 100;
+            const y = Math.random() * 200 - 100;
+            button.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
 
 </body>
 </html>
